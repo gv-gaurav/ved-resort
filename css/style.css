@@ -5443,3 +5443,10 @@ select {
     }
 }
 
+.whatsapp-btn{
+    position: fixed;
+    left: 2rem ;
+    bottom: 2rem;
+    width: 50px;
+    z-index: 999;
+}
