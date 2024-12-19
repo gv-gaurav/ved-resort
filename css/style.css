@@ -1070,11 +1070,11 @@ color: #aa8453;
         padding: 26px 0 26px 15px;
     }
     .nav-scroll .logo-wrapper {
-        padding: 26px 0 26px 15px;
+        padding: 0 15px;
         background-color: transparent;
     }
     .nav-scroll .logo-img {
-        width: 160px;
+        width: 100px;
     }
     .navbar .logo {
         text-align: left;
@@ -1083,7 +1083,7 @@ color: #aa8453;
     .nav-scroll .logo {}
     .logo-img {
         margin-bottom: 0px;
-        width: 160px;
+        width: 100px;
         padding: 0;
     }
     .navbar button {
