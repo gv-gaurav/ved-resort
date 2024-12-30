@@ -228,57 +228,77 @@
                                 <h4>Hotel Booking Form</h4>
                             </div>
                             <div class="booking-inner clearfix">
-                                <form action="contact.html" class="form1 clearfix">
+                                <form id="contactForm" class="form1 clearfix">
                                     <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="input1_wrapper">
-                                                <label>Check in</label>
-                                                <div class="input1_inner">
-                                                    <input type="text" class="form-control input datepicker" placeholder="Check in">
-                                                </div>
-                                            </div>
+                                      <div class="col-md-12">
+                                        <div class="input1_wrapper">
+                                          <label>Check in</label>
+                                          <div class="input1_inner">
+                                            <input
+                                              type="text"
+                                              id="contact-checkin"
+                                              class="form-control input datepicker"
+                                              placeholder="Check in"
+                                            />
+                                          </div>
                                         </div>
-                                        <div class="col-md-12">
-                                            <div class="input1_wrapper">
-                                                <label>Check out</label>
-                                                <div class="input1_inner">
-                                                    <input type="text" class="form-control input datepicker" placeholder="Check out">
-                                                </div>
-                                            </div>
+                                      </div>
+                                      <div class="col-md-12">
+                                        <div class="input1_wrapper">
+                                          <label>Check out</label>
+                                          <div class="input1_inner">
+                                            <input
+                                              type="text"
+                                              id="contact-checkout"
+                                              class="form-control input datepicker"
+                                              placeholder="Check out"
+                                            />
+                                          </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="select1_wrapper">
-                                                <label>Adults</label>
-                                                <div class="select1_inner">
-                                                    <select class="select2 select" style="width: 100%">
-                                                        <option value="0">Adults</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                        <div class="select1_wrapper">
+                                          <label>Adults</label>
+                                          <div class="select1_inner">
+                                            <select
+                                              id="contact-adult"
+                                              class="select2 select"
+                                              style="width: 100%"
+                                            >
+                                              <option value="0">Adults</option>
+                                              <option value="1">1</option>
+                                              <option value="2">2</option>
+                                              <option value="3">3</option>
+                                              <option value="4">4</option>
+                                            </select>
+                                          </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="select1_wrapper">
-                                                <label>Children</label>
-                                                <div class="select1_inner">
-                                                    <select class="select2 select" style="width: 100%">
-                                                        <option value="0">Children</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                        <div class="select1_wrapper">
+                                          <label>Children</label>
+                                          <div class="select1_inner">
+                                            <select
+                                              id="contact-children"
+                                              class="select2 select"
+                                              style="width: 100%"
+                                            >
+                                              <option value="0">Children</option>
+                                              <option value="1">1</option>
+                                              <option value="2">2</option>
+                                              <option value="3">3</option>
+                                              <option value="4">4</option>
+                                            </select>
+                                          </div>
                                         </div>
-                                        <div class="col-md-12">
-                                            <button type="submit" class="btn-form1-submit mt-15">Check Availability</button>
-                                        </div>
+                                      </div>
+                                      <div class="col-md-12">
+                                        <button type="submit" class="btn-form1-submit mt-15">
+                                          Check Availability
+                                        </button>
+                                      </div>
                                     </div>
-                                </form>
+                                  </form>
                             </div>
                         </div>
                     </div>
@@ -396,6 +416,13 @@
     <script src="js/select2.js"></script>
     <script src="js/datepicker.js"></script>
     <script src="js/smooth-scroll.min.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="js/custom.js"></script>    <script type="module">
+        import { handleSubmitContactForm } from "./api/contactApi.js";
+        document.addEventListener("DOMContentLoaded", () => {
+          document
+            .getElementById("contactForm")
+            .addEventListener("submit", handleSubmitContactForm);
+        });
+      </script>
 </body>
 </html>
