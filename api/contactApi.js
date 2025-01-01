@@ -18,6 +18,18 @@ export const createContact = async (contactData) => {
   }
 };
 
+function myFunction(
+  message = "Thank you! Your contact form has been submitted successfully."
+) {
+  console.log("toast");
+  var x = document.getElementById("snackbar");
+  x.innerText = message; // Set the dynamic message
+  x.className = "show";
+  setTimeout(function () {
+    x.className = x.className.replace("show", "");
+  }, 3000);
+}
+
 export const handleSubmitContactForm = async (event) => {
   event.preventDefault(); // Prevent form reload
 
@@ -30,6 +42,12 @@ export const handleSubmitContactForm = async (event) => {
 
   try {
     // Call the API to create a contact
+
+    if (!checkIn || !checkOut || !adults || !children) {
+      myFunction("Please fill all details.");
+      return;
+    }
+
     const response = await createContact({
       checkIn,
       checkOut,
@@ -40,16 +58,19 @@ export const handleSubmitContactForm = async (event) => {
 
     if (response) {
       console.log("Form submitted successfully. We will reach you soon!");
+
       document.getElementById("contact-checkin").value = "";
       document.getElementById("contact-checkout").value = "";
       document.getElementById("contact-adult").value = "0";
       document.getElementById("contact-children").value = "0";
-    } else {
-      alert("Failed to submit the form.");
+      myFunction();
     }
   } catch (error) {
     console.error("Error handling contact form submission:", error);
-    alert("An error occurred while submitting the form.");
+    // alert("An error occurred while submitting the form.");
+    myFunction(
+      "An error occurred while submitting the form. Please try again later."
+    );
   }
 };
 export const handleSubmitContactForm2 = async (event) => {
@@ -65,6 +86,12 @@ export const handleSubmitContactForm2 = async (event) => {
 
   try {
     // Call the API to create a contact
+
+    if (!name || (!email && !phone) || (!subject && !message)) {
+      myFunction("Please fill all details.");
+      return;
+    }
+
     const response = await createContact({
       name,
       email,
@@ -82,11 +109,14 @@ export const handleSubmitContactForm2 = async (event) => {
       document.getElementById("contact-phone").value = "";
       document.getElementById("contact-subject").value = "";
       document.getElementById("contact-message").value = "";
-    } else {
-      alert("Failed to submit the form.");
+      myFunction(
+        "Thank you! Your contact form has been submitted successfully. We'll get back to you shortly!"
+      );
     }
   } catch (error) {
     console.error("Error handling contact form submission:", error);
-    alert("An error occurred while submitting the form.");
+    myFunction(
+      "An error occurred while submitting the form. Please try again later."
+    );
   }
 };
